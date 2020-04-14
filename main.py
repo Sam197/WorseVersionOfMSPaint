@@ -251,6 +251,7 @@ def main():
                 blueSlider.circleX = x
             elif y > 600 and x > 520:
                 if startofCoolDown + cooldowntime < time.time():
+                    pressedButton = 1101010101010101010101
                     for btn in buttons:
                         if btn.x <= x <= btn.x + btn.length and btn.y <= y <= btn.y + btn.height:
                             curCommand = btn.pressed()
