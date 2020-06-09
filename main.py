@@ -13,8 +13,11 @@ pygame.init()
 SCREENX = 1000
 SCREENY = 770
 
+print(os.getcwd())
+
 global TILE_SIZE
 TILE_SIZE = 20
+Brush_size = 2
 TILE_BLOCK = pygame.image.load(os.path.join('Sprites', 'Transparent.png'))
 TestBLOCK = pygame.image.load(os.path.join('Sprites', 'Test.png'))
 
@@ -192,6 +195,9 @@ def main():
     #erasebutton here
 
     #fill button here
+    fillButton = ButtonNotTk(560, 655, 3, "Fill", (255,255,255), colour, 100, 25)
+    buttons.append(fillButton)
+
 
     #line button here
 
@@ -238,6 +244,13 @@ def main():
                                 col.b = blue
                             elif RightButton and curCommand == 1:
                                 col.curIMG = TILE_BLOCK
+                            elif LeftButton and curCommand == 3:
+                                for row in grid:
+                                    for col in row:
+                                        col.curIMG = "This will Cause an Exception"
+                                        col.r = red
+                                        col.g = green
+                                        col.b = blue
                             elif LeftButton and curCommand == 5 and col.curIMG == "This Will Cause An Exception":
                                 redSlider.circleX = (col.r*2)+10
                                 greenSlider.circleX = (col.g*2) + 10
